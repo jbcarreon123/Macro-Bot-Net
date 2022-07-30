@@ -8,6 +8,7 @@ The ***Macro-Bot*** is the official *Support-Bot* of the official [Support-Disco
   - Delete messages without including at least one image in one of the image-only channels
     - #button-showcase
     - #setup-showcase
+  - Moderation-Tools system to help moderators to moderate the server
 
 - **Ticket-System:**  
   Easy way to open new Tickets and the select the kind of problem you have for a faster and more efficient way to get help.
@@ -21,3 +22,4 @@ The ***Macro-Bot*** is the official *Support-Bot* of the official [Support-Disco
 ## Written by:
 - [@Develeon64](https://github.com/Develeon64)
 - [@Xenox003](https://github.com/Xenox003)
+- [@jbcarreon123](https://github.com/jbcarreon123)
