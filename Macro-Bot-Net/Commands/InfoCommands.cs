@@ -42,8 +42,8 @@ namespace Develeon64.MacroBot.Commands
             embed.WithThumbnailUrl(Context.Client.GetUser(user.Id).GetAvatarUrl());
             embed.AddField("Status", Context.Client.GetUser(user.Id).Status, true);
             embed.AddField("Roles", Context.Guild.GetUser(user.Id).Roles.Count - 1, true);
-            embed.AddField("Creation Date", $"<t:" + Context.Client.GetUser(user.Id).CreatedAt.ToUnixTimeSeconds() + ">");
-            embed.AddField("Join Date", $"<t:" + Context.Guild.GetUser(user.Id).JoinedAt.Value.ToUnixTimeSeconds() + ">");
+            embed.AddField("Creation Date", $"<t:" + Context.Client.GetUser(user.Id).CreatedAt.ToUnixTimeSeconds() + ":R>");
+            embed.AddField("Join Date", $"<t:" + Context.Guild.GetUser(user.Id).JoinedAt.Value.ToUnixTimeSeconds() + ":R>");
             embed.WithFooter("ID: " + Context.Client.GetUser(user.Id).Id);
 
             await RespondAsync(embed: embed.Build());
@@ -78,7 +78,7 @@ namespace Develeon64.MacroBot.Commands
                 Title = "#" + Context.Channel.Name,
                 Description = $"Here you can find the information of <#{Context.Channel.Id}>."
             };
-            embed.AddField("Created", $"<t:{Context.Channel.CreatedAt.ToUnixTimeSeconds()}>", true);
+            embed.AddField("Created", $"<t:{Context.Channel.CreatedAt.ToUnixTimeSeconds()}:R>", true);
             embed.AddField("Type", Context.Channel.GetChannelType(), true);
             embed.WithFooter($"ID: {Context.Channel.Id}");
 
