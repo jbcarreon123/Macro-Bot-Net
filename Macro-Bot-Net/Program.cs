@@ -12,6 +12,7 @@ namespace Develeon64.MacroBot {
 	public class Program {
 		private static InteractionCommandHandler commandHandler;
 		private static DiscordSocketClient _client;
+		public ulong messageid = 1;
 
 		public static Task Main (string[] args) => new Program().MainAsync(args);
 
@@ -24,7 +25,7 @@ namespace Develeon64.MacroBot {
 			timer.Elapsed += this.Timer_Elapsed;
 
 			Directory.CreateDirectory("DB");
-			await DatabaseManager.Initialize("DB\\Database.db3");
+			await DatabaseManager.Initialize("DB/Database.db3");
 
 			DiscordSocketConfig config = new() {
 				AlwaysDownloadUsers = true,
@@ -75,9 +76,7 @@ namespace Develeon64.MacroBot {
 		}
 
 		private async Task Ready () {
-			new StatusLoop(_client);
-
-			//await this.UpdateMemberCount();
+			await this.UpdateMemberCount();
 
 			// Load Slash Commands
 			// If debug, only load to test guild (Faster)
@@ -90,6 +89,11 @@ namespace Develeon64.MacroBot {
 			//{
 				await commandHandler.GetInteractionService().RegisterCommandsGloballyAsync(true);
 			//}
+
+			System.Timers.Timer timer = new System.Timers.Timer(5 * 60 * 1000);
+			timer.Elapsed += async (obj, args) => await StatusLoop.StatusLoop1(_client, messageid); // Which can also be written as += new ElapsedEventHandler(OnTick);
+			timer.Start();
+			await StatusLoop.StatusLoop1(_client, messageid);
 		}
 
 		private async Task UserJoined (SocketGuildUser member) {

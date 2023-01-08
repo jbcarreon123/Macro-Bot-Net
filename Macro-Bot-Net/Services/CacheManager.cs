@@ -9,7 +9,9 @@ namespace Develeon64.MacroBot.Services {
 		}
 
 		public static void Set<T> (string key, CacheObject<T> value) {
-			cache.Add(key, new CacheObject<object>(value.GetValue()));
+			try {
+				cache.Add(key, new CacheObject<object>(value.GetValue()));
+			} catch (Exception) {}
 		}
 	}
 }

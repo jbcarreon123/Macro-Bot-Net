@@ -20,6 +20,9 @@ The ***Macro-Bot*** is the official *Support-Bot* of the official [Support-Disco
 
 - **Plugins-Query-System:**  
   Shows all the plugins and allows you to search Macro Deck 2 plugins and icon packs
+
+- **Macro-Deck Service Status system:**
+  Shows when a Macro Deck service went offline or online.
   
 ## Written by:
 - [@Develeon64](https://github.com/Develeon64)

@@ -3,6 +3,7 @@
 		public string Token { get; set; }
 		public string GithubToken { get; set; }
 		public ulong TestGuildId { get; set; }
+		public ulong BotId { get; set; }
 		public ulong ProductiveGuildId { get; set; }
 		public RolesConfig Roles { get; set; }
 		public ChannelsConfig Channels { get; set; }
