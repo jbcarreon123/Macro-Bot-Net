@@ -26,19 +26,19 @@ namespace Develeon64.MacroBot.Utils {
             int exstapi = 0;
             int updtapi = 0;
 
-            StatusCommands.AsIf<WebResponse>(StatusCommands.CheckStatus("https://macro-deck.app/"), response => {
+            StatusCommands.AsIf<HttpResponseMessage>(await StatusCommands.CheckStatus("https://macro-deck.app/"), response => {
                 website = 1;
             });
-            StatusCommands.AsIf<WebResponse>(StatusCommands.CheckStatus("https://web.macro-deck.app/"), response => {
+            StatusCommands.AsIf<HttpResponseMessage>(await StatusCommands.CheckStatus("https://web.macro-deck.app/"), response => {
                 webclie = 1;
             });
-            StatusCommands.AsIf<WebResponse>(StatusCommands.CheckStatus("https://extensionstore.macro-deck.app/"), response => {
+            StatusCommands.AsIf<HttpResponseMessage>(await StatusCommands.CheckStatus("https://extensionstore.macro-deck.app/"), response => {
                 extstor = 1;
             });
-            StatusCommands.AsIf<WebResponse>(StatusCommands.CheckStatus("https://extensionstore.api.macro-deck.app/"), response => {
+            StatusCommands.AsIf<HttpResponseMessage>(await StatusCommands.CheckStatus("https://extensionstore.api.macro-deck.app/"), response => {
                 exstapi = 1;
             });
-            StatusCommands.AsIf<WebResponse>(StatusCommands.CheckStatus("https://update.api.macro-deck.app/"), response => {
+            StatusCommands.AsIf<HttpResponseMessage>(await StatusCommands.CheckStatus("https://update.api.macro-deck.app/"), response => {
                 updtapi = 1;
             });
 

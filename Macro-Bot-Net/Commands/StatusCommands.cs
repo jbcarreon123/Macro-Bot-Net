@@ -50,19 +50,21 @@ namespace Develeon64.MacroBot.Commands {
             await FollowupAsync(embed: embed.Build());
         }
 
-        public static WebResponse? CheckStatus(string url) {
-            HttpWebRequest request = (HttpWebRequest)HttpWebRequest.Create(url);
-            request.AllowAutoRedirect = false; // find out if this site is up and don't follow a redirector
-            request.Method = "HEAD";
-            try {
-                return request.GetResponse();
-            } catch (WebException wex)
+        public async static Task<HttpResponseMessage?> CheckStatus(string url) {
+            using (var client = new HttpClient())
             {
-                if (wex.Status != WebExceptionStatus.Success) {
+                try {
+                    var response = await client.GetAsync(url);
+                    if(response.IsSuccessStatusCode) //LINQ
+                    {
+                        return response;
+                    } else {
+                        return null;
+                    }
+                } catch (Exception) {
                     return null;
                 }
             }
-            return null;
         }
 
         public static void AsIf<T>(object? value, Action<T> action) where T : class
